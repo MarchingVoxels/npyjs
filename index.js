@@ -121,7 +121,7 @@ class npyjs {
         Loads an array from a stream of bytes.
         */
         let self = this;
-        return fetch(filename).then(fh => {
+        return fetch(filename, {mode: 'cors', headers: {'Access-Control-Allow-Origin':'*'}}).then(fh => {
             if (fh.ok) {
                 return fh.blob().then(i => {
                     var content = i;
